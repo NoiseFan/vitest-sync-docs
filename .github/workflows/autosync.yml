@@ -1,4 +1,4 @@
-name: Auto Sync
+name: AutoSync
 
 on:
   schedule:
@@ -7,15 +7,20 @@ on:
 
 jobs:
   autosync:
-    name: Auto Sync
+    name: Ryu Cho
     runs-on: ubuntu-latest
     steps:
-       - uses: TobKed/github-forks-sync-action@master
-         with:
-          github_token: ${{ secrets.AUTO_SYNC_ACCESS_TOKEN }}
-          upstream_repository: vitest-dev/vitest
-          upstream_branch: main
-          target_repository: NoiseFan/vitest-sync-docs
-          target_branch: sync
-          force: false
-          tags: false
+      - uses: vuejs-translations/ryu-cho@v1
+        with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          username: github-actions
+          email: "action@github.com"
+
+          upstream-repo: https://github.com/NoiseFan/vitest-sync-docs.git
+          upstream-repo-branch: main
+
+          head-repo: https://github.com/vitest-dev/vitest
+          head-repo-branch: main
+          track-from: fee7d8be9d6e6f710270600ae91fa35d861b7075
+          path-starts-with: docs/
+          workflow-name: AutoSync
