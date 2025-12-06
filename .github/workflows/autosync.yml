@@ -7,7 +7,7 @@ on:
 
 jobs:
   autosync:
-    name: Ryu Cho
+    name: AutoSync
     runs-on: ubuntu-latest
     steps:
       - uses: vuejs-translations/ryu-cho@v1
