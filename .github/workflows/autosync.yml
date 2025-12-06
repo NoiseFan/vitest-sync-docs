@@ -17,7 +17,7 @@ jobs:
           email: "action@github.com"
 
           upstream-repo: https://github.com/NoiseFan/vitest-sync-docs.git
-          upstream-repo-branch: sync
+          upstream-repo-branch: master
 
           head-repo: https://github.com/vitest-dev/vitest
           head-repo-branch: main
