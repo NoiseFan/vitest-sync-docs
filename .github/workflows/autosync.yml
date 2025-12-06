@@ -10,6 +10,9 @@ jobs:
     name: Auto Sync
     runs-on: ubuntu-latest
     steps:
+       - name: Set access token output
+         id: set-token
+         run: echo "AUTO_SYNC_ACCESS_TOKEN= ${{ secrets.AUTO_SYNC_ACCESS_TOKEN }} " >> $GITHUB_OUTPUT
        - uses: TobKed/github-forks-sync-action@master
          with:
           github_token: ${{ secrets.AUTO_SYNC_ACCESS_TOKEN }}
