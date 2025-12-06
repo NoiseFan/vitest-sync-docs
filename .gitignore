@@ -1,1 +1,3 @@
 start.sh
+.vitepress/cache
+node_modules
