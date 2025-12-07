@@ -3,6 +3,7 @@ name: ryu-cho
 on:
   schedule:
     - cron: "0 1 * * *"
+  workflow_dispatch:
 
 jobs:
   ryu-cho:
@@ -21,7 +22,7 @@ jobs:
           upstream-repo-branch: main
 
           head-repo: https://github.com/vitest-dev/vitest
-          head-repo-branch: main
+          head-repo-branch: syncz
           track-from: fee7d8be9d6e6f710270600ae91fa35d861b7075
           path-starts-with: docs/
           workflow-name: ryu-cho
