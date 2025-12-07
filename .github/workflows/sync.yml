@@ -1,23 +1,27 @@
-name: Auto Sync 2
+name: ryu-cho
 
 on:
   schedule:
-    - cron: '0 0 * * *' # At 00:00.  https://crontab.guru/
-  workflow_dispatch: # on button click
-
-permissions:
-  contents: write
+    - cron: "0 1 * * *"
 
 jobs:
-  sync:
+  ryu-cho:
+    name: Ryu Cho
     runs-on: ubuntu-latest
     steps:
-      - uses: TobKed/github-forks-sync-action@master
+      - uses: vuejs-translations/ryu-cho@v1
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          upstream_repository: vitest-dev/vitest
-          upstream_branch: main
-          target_repository: NoiseFan/vitest-sync-docs
-          target_branch: sync
-          force: true
-          tags: false
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          username: github-actions
+          email: "action@github.com"
+
+          # TODO: Replace this with your own repo URL
+          upstream-repo: https://github.com/NoiseFan/vitest-sync-docs.git
+          # TODO: Replace this with your own repo's branch name
+          upstream-repo-branch: main
+
+          head-repo: https://github.com/vitest-dev/vitest
+          head-repo-branch: main
+          track-from: fee7d8be9d6e6f710270600ae91fa35d861b7075
+          path-starts-with: docs/
+          workflow-name: ryu-cho
