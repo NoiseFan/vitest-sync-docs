@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: TobKed/github-forks-sync-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACCESS_TOKEN }}
           upstream_repository: vitest-dev/vitest
           upstream_branch: main
           target_repository: NoiseFan/vitest-sync-docs
