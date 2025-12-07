@@ -19,10 +19,10 @@ jobs:
           # TODO: Replace this with your own repo URL
           upstream-repo: https://github.com/NoiseFan/vitest-sync-docs.git
           # TODO: Replace this with your own repo's branch name
-          upstream-repo-branch: main
+          upstream-repo-branch: sync
 
           head-repo: https://github.com/vitest-dev/vitest
-          head-repo-branch: syncz
+          head-repo-branch: main
           track-from: fee7d8be9d6e6f710270600ae91fa35d861b7075
           path-starts-with: docs/
           workflow-name: ryu-cho
