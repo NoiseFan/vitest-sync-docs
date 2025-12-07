@@ -19,5 +19,5 @@ jobs:
           upstream_branch: main
           target_repository: NoiseFan/vitest-sync-docs
           target_branch: sync
-          force: false
+          force: true
           tags: false
