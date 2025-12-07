@@ -21,6 +21,6 @@ jobs:
 
           head-repo: https://github.com/vitest-dev/vitest
           head-repo-branch: main
-          track-from: da7ce1712fd4d0e4e807ec01ce755581e6892d5b
+          track-from: 555c2a2958aa698cad08d756c5f6ac8917319cb4
           path-starts-with: docs/
           workflow-name: ryu-cho
