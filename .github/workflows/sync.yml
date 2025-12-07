@@ -1,0 +1,20 @@
+name: Auto Sync 2
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # At 00:00.  https://crontab.guru/
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TobKed/github-forks-sync-action@master
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          upstream_repository: vitest-dev/vitest
+          upstream_branch: main
+          target_repository: NoiseFan/vitest-sync-docs
+          target_branch: sync
+          force: false
+          tags: false
