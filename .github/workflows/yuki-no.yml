@@ -1,0 +1,52 @@
+name: yuki-no
+
+permissions:
+  # Read external repo changes
+  contents: read
+  # Create and update issues for tracked changes
+  issues: write
+  # Get last workflow run info
+  actions: read
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Every hour
+  workflow_dispatch: # Manual trigger (Optional)
+
+jobs:
+  yuki-no:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Gumball12/yuki-no@v1
+        with:
+          # [Required]
+          # GitHub access token.
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+
+          # [Required]
+          # The head repo to track. This is the repository you want to
+          # take a diff.
+          head-repo: https://github.com/vitest-dev/vitest
+
+          # [Required]
+          # The git commit sha of head repo to start tracking. Yuki-no will
+          # only track commit from this hash.
+          #
+          # WARNING: TRACK_FROM commit is not included, tracking starts from
+          # the next commit
+          track-from: 555c2a2958aa698cad08d756c5f6ac8917319cb4
+
+          # [Optional]
+          # List of file patterns to track. Multiple patterns can be specified
+          # with newlines. Files matching these Glob patterns will be included
+          # in tracking.
+          # If empty, all files will be tracked.
+          #
+          # (Glob Pattern: https://github.com/micromatch/picomatch?tab=readme-ov-file#advanced-globbing)
+          include: |
+            docs/**
+
+          # [Optional]
+          # List of plugins to load. See ./docs/PLUGINS.md for details.
+          plugins: |
+            @yuki-no/plugin-release-tracking@latest
